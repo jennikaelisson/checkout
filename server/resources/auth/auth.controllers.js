@@ -1,4 +1,5 @@
 const fetchUsers = require("../../utils/fetchUsers")
+const bcrypt = require("bcrypt")
 
 const register = async (req, res) => {
     // Validering först? 
@@ -10,6 +11,10 @@ const register = async (req, res) => {
     if (userAlreadyExists) {
         return res.status(400).json("User already exists")
     }
+
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    
 
 }
 
