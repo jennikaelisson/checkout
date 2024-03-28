@@ -22,7 +22,24 @@ const register = async (req, res) => {
     users.push(newUser)
     await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2))
 
-    res.status(201).json(newUser)
+    res.status(201).json(newUser.email)
 }
 
-module.exports = {register} 
+const login = async (req, res) => {
+    const {email, password} = req.body 
+
+    const users = await fetchUsers()
+    const userExists = users.find(u => u.email === email)
+
+    await bcrypt.compare(password, userExists.password)
+
+    if (!userExists) {
+        return res.status(400).json("Wrong user")
+    }
+    
+    if (!await bcrypt.compare(password, userExists.password)) {
+        return res.status(400).json("Wrong password")
+    }
+}
+
+module.exports = {register, login} 
