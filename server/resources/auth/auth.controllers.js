@@ -22,6 +22,7 @@ const register = async (req, res) => {
     users.push(newUser)
     await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2))
 
+    res.status(201).json(newUser)
 }
 
 module.exports = {register} 
