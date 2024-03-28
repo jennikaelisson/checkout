@@ -5,3 +5,16 @@ Content-Type: application/json
     "email": "jfniwokojo@kgjneg.com",
     "password": "123456"
 }
+
+###
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "jfniweokojo@kgjneg.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3001/api/auth/logout
+

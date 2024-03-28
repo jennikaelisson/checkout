@@ -31,8 +31,6 @@ const login = async (req, res) => {
     const users = await fetchUsers()
     const userExists = users.find(u => u.email === email)
 
-    await bcrypt.compare(password, userExists.password)
-
     if (!userExists) {
         return res.status(400).json("Wrong user")
     }
@@ -40,6 +38,15 @@ const login = async (req, res) => {
     if (!await bcrypt.compare(password, userExists.password)) {
         return res.status(400).json("Wrong password")
     }
+
+    req.session.user = userExists
+
+    res.status(200).json(userExists.email)
 }
 
-module.exports = {register, login} 
+const logout = (req, res) => {
+    req.session = null
+    res.status(200).json("Successfully logged out")
+}
+
+module.exports = {register, login, logout} 
