@@ -1,4 +1,5 @@
 const fetchUsers = require("../../utils/fetchUsers")
+const fs = require("fs").promises
 const bcrypt = require("bcrypt")
 
 const register = async (req, res) => {
@@ -14,7 +15,12 @@ const register = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10)
 
-    
+    const newUser = {
+        email,
+        password: hashedPassword
+    }
+    users.push(newUser)
+    await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2))
 
 }
 
