@@ -1,8 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./../App.css";
 
 const Home = () => {
   const [user, setUser] = useState<string>("");
+
+    useEffect(() => {
+        const authorize = async () => {
+            const response = await fetch("http://localhost:3001/api/auth/authorize", {
+                credentials: "include"
+              });
+
+              const data = await response.json();
+              if (response.status === 200) {
+                setUser(data)
+              } else {
+                setUser("")
+              }
+        }
+        authorize()
+    }, [])
 
   const register = async () => {
     const response = await fetch("http://localhost:3001/api/auth/register", {
