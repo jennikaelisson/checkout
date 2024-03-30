@@ -50,11 +50,23 @@ const Home = () => {
     }
   };
 
+  const logout = async () => {
+    const response = await fetch("http://localhost:3001/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      
+      if (response.status === 200) {
+          setUser("")
+      } 
+  }
+
   return (
     <>
       <h1>{user ? "Inloggad:" + user : "Utloggad"}</h1>
       <button onClick={register}>Registrera</button>
       <button onClick={login}>Logga in</button>
+      <button onClick={logout}>Logga ut</button>
     </>
   );
 };
