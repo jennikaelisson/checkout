@@ -13,6 +13,8 @@ const Home = () => {
   const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
 
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
   useEffect(() => {
     const authorize = async () => {
       const response = await fetch("http://localhost:3001/api/auth/authorize", {
@@ -40,6 +42,8 @@ const Home = () => {
     });
     const data = await response.json();
     console.log(data);
+
+    setRegistrationSuccess(true)
   };
 
   const login = async (e: FormEvent) => {
@@ -93,14 +97,15 @@ const Home = () => {
     setPasswordLoginInput(e.target.value);
   };
 
-  const handleRegisterClick = () => {
-    setShowRegisterForm(true);
-    setShowLoginForm(false);
-  };
-
   const handleLoginClick = () => {
     setShowLoginForm(true);
     setShowRegisterForm(false);
+  };
+
+  const handleRegisterClick = () => {
+    setShowRegisterForm(true);
+    setShowLoginForm(false);
+    setRegistrationSuccess(false);
   };
 
   return (
@@ -114,6 +119,8 @@ const Home = () => {
             <button onClick={handleLoginClick}>Logga in</button>
 
             {showRegisterForm && (
+              <>
+              {registrationSuccess && <p>Registrering lyckad</p>}
               <form onSubmit={register}>
                 <label htmlFor="emailInput">Email</label>
                 <input
@@ -128,7 +135,7 @@ const Home = () => {
                   onChange={handlePasswordChange}
                 />
                 <button>Registrera</button>
-              </form>
+              </form></>
             )}
 
             {showLoginForm && (

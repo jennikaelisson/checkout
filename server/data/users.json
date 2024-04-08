@@ -38,5 +38,25 @@
   {
     "email": "aaa",
     "password": "$2b$10$9LwzwHhKe4qUlcEm268nguGxqyP8u5m5RnoQe459ef3CWqiABpA.C"
+  },
+  {
+    "email": "j",
+    "password": "$2b$10$1xaQ//aiFIry6J6MSVTJmuzzy4LzG.rateL5Zj/l2mbc/pYceQwmq"
+  },
+  {
+    "email": "l",
+    "password": "$2b$10$NVWUY19hqSqNL8wAr6zyLO4wXuNK.FLjqa1J3hv8E2bDx07gODvae"
+  },
+  {
+    "email": "m",
+    "password": "$2b$10$C/ZimPR3bmiMfHyxVDD0Gewyguknu8Pe5zcBaLxwJSe8b0ksWj2yq"
+  },
+  {
+    "email": "k",
+    "password": "$2b$10$xF38RRGCT.SP2nm5RoPmCOcyS6FVgyYYkTQzrYkJYK.XVFJfnbDO."
+  },
+  {
+    "email": "kS",
+    "password": "$2b$10$5ygCUc5BxAsjjK3lKyng.uiKCEwoWe/Zvl0BDHHx30KpgyfzkCy0e"
   }
 ]
