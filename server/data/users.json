@@ -30,5 +30,9 @@
   {
     "email": "c",
     "password": "$2b$10$umvqPyGBDUv2fT/QTDqVoOPeeKEOQYjtGK6aR57jvfOMCqsNTFq.S"
+  },
+  {
+    "email": "ö",
+    "password": "$2b$10$LlR9PmbSBlFSrGIGQZbGBOeJhFz/odjLQfcK91h3quP9InPdrw.Oe"
   }
 ]
