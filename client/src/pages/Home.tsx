@@ -62,6 +62,8 @@ const Home = () => {
     } else {
       setUser("");
     }
+    setEmailLoginInput("");
+    setPasswordLoginInput("");
   };
 
   const logout = async () => {
