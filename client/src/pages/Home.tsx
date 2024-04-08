@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./../App.css";
+import PaymentButton from "../components/Payment";
 
 const Home = () => {
   const [user, setUser] = useState<string>("");
@@ -67,6 +68,8 @@ const Home = () => {
       <button onClick={register}>Registrera</button>
       <button onClick={login}>Logga in</button>
       <button onClick={logout}>Logga ut</button>
+
+      <div><PaymentButton /></div>
     </>
   );
 };

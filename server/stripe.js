@@ -1,5 +1,6 @@
 const Stripe = require("stripe")
 
+
 const initStripe = () => {
     const apiKey = process.env.STRIPE_KEY
     if (!apiKey) return
@@ -8,4 +9,4 @@ const initStripe = () => {
     })
 }
 
-module.exports = { initStripe }
+module.exports = initStripe
