@@ -16,6 +16,7 @@ const PaymentButton = () => {
             ])
         })
         const data = await response.json();
+        localStorage.setItem("sessionId", JSON.stringify(data.sessionId))
         window.location = data.url;        
     }
     return <button onClick={handlePayment}>Pay</button>
