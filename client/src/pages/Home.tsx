@@ -43,7 +43,7 @@ const Home = () => {
     const data = await response.json();
     console.log(data);
 
-    setRegistrationSuccess(true)
+    setRegistrationSuccess(true);
   };
 
   const login = async (e: FormEvent) => {
@@ -112,7 +112,12 @@ const Home = () => {
     <>
       <div>
         {user ? (
-          <button onClick={logout}>Logga ut</button>
+          <>
+            <div>
+              <PaymentButton />
+            </div>
+            <button onClick={logout}>Logga ut</button>
+          </>
         ) : (
           <>
             <button onClick={handleRegisterClick}>Registrera</button>
@@ -120,22 +125,23 @@ const Home = () => {
 
             {showRegisterForm && (
               <>
-              {registrationSuccess && <p>Registrering lyckad</p>}
-              <form onSubmit={register}>
-                <label htmlFor="emailInput">Email</label>
-                <input
-                  id="emailInput"
-                  value={emailInput}
-                  onChange={handleEmailChange}
-                />
-                <label htmlFor="passwordInput">Password</label>
-                <input
-                  id="passwordInput"
-                  value={passwordInput}
-                  onChange={handlePasswordChange}
-                />
-                <button>Registrera</button>
-              </form></>
+                {registrationSuccess && <p>Registrering lyckad</p>}
+                <form onSubmit={register}>
+                  <label htmlFor="emailInput">Email</label>
+                  <input
+                    id="emailInput"
+                    value={emailInput}
+                    onChange={handleEmailChange}
+                  />
+                  <label htmlFor="passwordInput">Password</label>
+                  <input
+                    id="passwordInput"
+                    value={passwordInput}
+                    onChange={handlePasswordChange}
+                  />
+                  <button>Registrera</button>
+                </form>
+              </>
             )}
 
             {showLoginForm && (
@@ -157,10 +163,6 @@ const Home = () => {
             )}
           </>
         )}
-      </div>
-
-      <div>
-        <PaymentButton />
       </div>
     </>
   );

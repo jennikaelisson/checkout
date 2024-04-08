@@ -1,7 +1,7 @@
 const initStripe = require("../../stripe")
 
 const createCheckOutSession = async (req, res) => {
-const cart = req.body
+    const cart = req.body
 
     const stripe = initStripe()
     const session = await stripe.checkout.sessions.create({
@@ -18,6 +18,10 @@ const cart = req.body
     })
 
     res.status(200).json({ url: session.url }) // , sessionId: session.id
+}
+
+const verifySession = async (req, res) => {
+    const session = await stripe.checkout.sessions.retrieve()
 }
 
 module.exports = { createCheckOutSession }
