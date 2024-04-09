@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "./../App.css";
 import PaymentButton from "../components/Payment";
+import ProductList from "../components/ProductList";
 
 const Home = () => {
   const [user, setUser] = useState<string>("");
@@ -113,6 +114,7 @@ const Home = () => {
       <div>
         {user ? (
           <>
+          <div><ProductList /></div>
             <div>
               <PaymentButton />
             </div>

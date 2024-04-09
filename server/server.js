@@ -1,6 +1,7 @@
 const express = require("express")
 const cookieSession = require("cookie-session")
 const cors = require("cors")
+const initStripe = require("./stripe")
 require("dotenv").config()
 
 const userRouter = require("./resources/users/users.router")
@@ -28,6 +29,13 @@ app.use("/api/users", userRouter)
 app.use("/api/auth", authRouter)
 app.use("/payments", stripeRouter)
 
+app.get("/products", async (req, res) => {
+    const stripe = initStripe()
+    const products = await stripe.products.list({
+        expand: ["data.default_price"]
+    })
+    res.status(200).json(products)
+})
 
 
 
