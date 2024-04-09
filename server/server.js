@@ -26,7 +26,7 @@ app.use(cookieSession({
 // Routes
 app.use("/api/users", userRouter)
 app.use("/api/auth", authRouter)
-app.use("/api/payments", stripeRouter)
+app.use("/payments", stripeRouter)
 
 
 

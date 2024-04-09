@@ -1,1 +1,4 @@
 POST http://localhost:3001/api/payments/create-checkout-session
+
+###
+POST http://localhost:3001/api/payments/verify-session
