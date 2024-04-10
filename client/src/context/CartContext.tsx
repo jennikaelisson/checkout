@@ -6,7 +6,8 @@ export interface IProduct {
     description: string,
     images: string[],
     default_price: {
-        unit_amount: number
+        unit_amount: number,
+        id: string,
     }
 }
 
