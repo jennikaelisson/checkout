@@ -7,7 +7,7 @@ const register = async (req, res) => {
   // Validering först?
   const stripe = initStripe();
 
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const users = await fetchUsers();
   const userAlreadyExists = users.find((u) => u.email === email);
@@ -19,11 +19,12 @@ const register = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const customer = await stripe.customers.create({
-    // name: name,
+    name: name,
     email: email,
   });
 
   const newUser = {
+    name: name,
     email: email,
     customerId: customer.id,
     password: hashedPassword,
