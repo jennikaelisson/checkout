@@ -2,6 +2,8 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "./../App.css";
 import PaymentButton from "../components/Payment";
 import ProductList from "../components/ProductList";
+import CartProvider from "../context/CartContext";
+import Header from "../components/Header";
 
 const Home = () => {
   const [user, setUser] = useState<string>("");
@@ -110,11 +112,13 @@ const Home = () => {
   };
 
   return (
-    <>
+    <CartProvider>
       <div>
         {user ? (
-          <>
-          <div><ProductList /></div>
+          <><div><Header /></div>
+            <div>
+              <ProductList />
+            </div>
             <div>
               <PaymentButton />
             </div>
@@ -166,7 +170,7 @@ const Home = () => {
           </>
         )}
       </div>
-    </>
+    </CartProvider>
   );
 };
 

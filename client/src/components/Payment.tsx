@@ -6,6 +6,7 @@ const PaymentButton = () => {
             headers: {
                 "Content-type": "application/json"
             },
+            credentials: "include",
             body: JSON.stringify([
                 {
                     product: "price_1P1niGRr8sE6FBT0PdKdea9i",

@@ -30,8 +30,8 @@ export const useCart = () => useContext(CartContext);
 
 const CartProvider = ({children}: PropsWithChildren) => {
     const [cart, setCart] = useState<ICartItem[]>(() => {
-        const localStorageData = localStorage.getItem("cart");
-        return localStorageData ? JSON.parse(localStorageData) : [];
+        const lSData = localStorage.getItem("cart");
+        return lSData ? JSON.parse(lSData) : [];
     })
 
     useEffect(() => {
