@@ -1,11 +1,15 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "./../App.css";
 import PaymentButton from "../components/Payment";
+import ProductList from "../components/ProductList";
+import CartProvider from "../context/CartContext";
+import Header from "../components/Header";
 
 const Home = () => {
   const [user, setUser] = useState<string>("");
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+  const [nameInput, setNameInput] = useState("");
 
   const [emailLoginInput, setEmailLoginInput] = useState("");
   const [passwordLoginInput, setPasswordLoginInput] = useState("");
@@ -38,7 +42,7 @@ const Home = () => {
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ email: emailInput, password: passwordInput }),
+      body: JSON.stringify({ name: nameInput, email: emailInput, password: passwordInput }),
     });
     const data = await response.json();
     console.log(data);
@@ -81,6 +85,10 @@ const Home = () => {
     }
   };
 
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setNameInput(e.target.value);
+  }
+
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmailInput(e.target.value);
   };
@@ -88,6 +96,7 @@ const Home = () => {
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPasswordInput(e.target.value);
   };
+
 
   const handleLoginEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmailLoginInput(e.target.value);
@@ -109,10 +118,16 @@ const Home = () => {
   };
 
   return (
-    <>
+    <CartProvider>
       <div>
         {user ? (
           <>
+            <div>
+              <Header />
+            </div>
+            <div>
+              <ProductList />
+            </div>
             <div>
               <PaymentButton />
             </div>
@@ -127,6 +142,12 @@ const Home = () => {
               <>
                 {registrationSuccess && <p>Registrering lyckad</p>}
                 <form onSubmit={register}>
+                  <label htmlFor="">Name</label>
+                  <input
+                    id="nameInput"
+                    value={nameInput}
+                    onChange={handleNameChange}
+                  />
                   <label htmlFor="emailInput">Email</label>
                   <input
                     id="emailInput"
@@ -164,7 +185,7 @@ const Home = () => {
           </>
         )}
       </div>
-    </>
+    </CartProvider>
   );
 };
 
