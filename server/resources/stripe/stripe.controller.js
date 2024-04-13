@@ -1,9 +1,9 @@
 const initStripe = require("../../stripe")
 const fs = require("fs").promises
 
-const path = require('path');
+// const path = require('path');
 
-const ordersFilePath = path.resolve(__dirname, 'orders.json');
+// const ordersFilePath = path.resolve(__dirname, 'orders.json');
 
 
 const createCheckOutSession = async (req, res) => {
@@ -51,9 +51,9 @@ const verifySession = async (req, res) => {
 
     }
 
-    const orders = JSON.parse(await fs.readFile(ordersFilePath))
+    const orders = JSON.parse(await fs.readFile("./data/orders.json"))
     orders.push(order)
-    await fs.writeFile(ordersFilePath, JSON.stringify(orders, null, 4))
+    await fs.writeFile("./data/orders.json", JSON.stringify(orders, null, 4))
     console.log(session)
 
     res.status(200).json({ verified: true })
