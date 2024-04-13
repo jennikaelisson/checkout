@@ -14,21 +14,26 @@ Checkout is a webshop that sells holidays for cheap prices. In the web shop, you
    git clone https://github.com/jennikaelisson/checkout
 
 2. Navigate to the project directory:
-  cd checkout
+   ```sh
+   cd checkout
 
-3. Install client-side dependencies:
-  cd client
-  npm install
+4. Install client-side dependencies:
+   ```sh
+   cd client
+   npm install
 
-4. Install server-side dependencies:
-  cd ../server
-  npm install
+6. Install server-side dependencies:
+   ```sh
+   cd ../server
+   npm install
 
-5. Run the client:
+7. Run the client:
+   ```sh
    cd ../client
    npm run dev
 
-6. Run the server:
+8. Run the server:
+   ```sh
    cd ../server
    node server
 
