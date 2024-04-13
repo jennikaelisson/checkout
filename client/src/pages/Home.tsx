@@ -123,7 +123,9 @@ const Home = () => {
       <div>
         <div>
               <Header />
-            </div>
+            
+        <PaymentButton />
+      </div>
             
         {user ? (
           <>
@@ -183,9 +185,7 @@ const Home = () => {
         )}<div>
         <ProductList />
       </div>
-      <div>
-        <PaymentButton />
-      </div>
+      
       </div>
     </CartProvider>
   );
