@@ -175,6 +175,7 @@ const Home = () => {
                 <label htmlFor="passwordLoginInput">Password</label>
                 <input
                   id="passwordLoginInput"
+                  type="password"
                   value={passwordLoginInput}
                   onChange={handleLoginPasswordChange}
                 />
