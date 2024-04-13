@@ -35,7 +35,7 @@ Checkout is a webshop that sells holidays for cheap prices. In the web shop, you
 8. Run the server:
    ```sh
    cd ../server
-   node server
+   npm start
 
 ## Help
 
