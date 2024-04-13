@@ -23,12 +23,10 @@ export const useUser = () => useContext(UserContext);
 const UserProvider = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<IUser | null>(null);
 
-  // Exempel på inloggning funktion
   const loginUser = (username: string) => {
     setUser({ username, isLoggedIn: true });
   };
 
-  // Exempel på utloggning funktion
   const logoutUser = () => {
     setUser(null);
   };
