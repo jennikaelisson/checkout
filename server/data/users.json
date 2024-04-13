@@ -10,5 +10,17 @@
     "email": "j@g.com",
     "customerId": "cus_Ptt6QILcubUXeE",
     "password": "$2b$10$RVJ3u5ixsqhItvzp8i/VuO6TX1kEIHaGr17EGuggyFiLYs2ua8Xei"
+  },
+  {
+    "name": "Anna",
+    "email": "anna@gmail.com",
+    "customerId": "cus_PuDFOAxeB59ZiL",
+    "password": "$2b$10$NPngK/Qr5AeUSb7DJ9NI6e2BATLlu7QDX/u5onc2uEy6rIH85xwri"
+  },
+  {
+    "name": "Anne",
+    "email": "anne@gmail.com",
+    "customerId": "cus_Pv37iHopVL750l",
+    "password": "$2b$10$9UUSg./ryhbOJ7p9sCd4su4fBPF56CbJHJHV93XX9K6PIa1vdGwlW"
   }
 ]

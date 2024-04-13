@@ -4,9 +4,10 @@ import PaymentButton from "../components/Payment";
 import ProductList from "../components/ProductList";
 import CartProvider from "../context/CartContext";
 import Header from "../components/Header";
+import { useUser } from "../context/UserContext";
 
 const Home = () => {
-  const [user, setUser] = useState<string>("");
+  const { user, loginUser, logoutUser } = useUser();
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [nameInput, setNameInput] = useState("");
@@ -27,9 +28,9 @@ const Home = () => {
 
       const data = await response.json();
       if (response.status === 200) {
-        setUser(data);
+        loginUser(data);
       } else {
-        setUser("");
+        logoutUser();
       }
     };
     authorize();
@@ -66,9 +67,9 @@ const Home = () => {
     const data = await response.json();
 
     if (response.status === 200) {
-      setUser(data);
+      loginUser(data);
     } else {
-      setUser("");
+      logoutUser();
     }
     setEmailLoginInput("");
     setPasswordLoginInput("");
@@ -81,7 +82,7 @@ const Home = () => {
     });
 
     if (response.status === 200) {
-      setUser("");
+      logoutUser();
     }
   };
 
@@ -120,17 +121,13 @@ const Home = () => {
   return (
     <CartProvider>
       <div>
-        {user ? (
-          <>
-            <div>
+        <div>
               <Header />
             </div>
-            <div>
-              <ProductList />
-            </div>
-            <div>
-              <PaymentButton />
-            </div>
+            
+        {user ? (
+          <>
+            
             <button onClick={logout}>Logga ut</button>
           </>
         ) : (
@@ -183,7 +180,12 @@ const Home = () => {
               </form>
             )}
           </>
-        )}
+        )}<div>
+        <ProductList />
+      </div>
+      <div>
+        <PaymentButton />
+      </div>
       </div>
     </CartProvider>
   );

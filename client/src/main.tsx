@@ -5,6 +5,7 @@ import Home from './pages/Home.tsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Confirmation from './pages/Confirmation.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
+import UserProvider from './context/UserContext.tsx';
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <UserProvider>
+     <RouterProvider router={router} /></UserProvider>
   </React.StrictMode>,
 )
